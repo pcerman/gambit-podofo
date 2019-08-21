@@ -265,7 +265,7 @@ c-lambda-end
 (define (ffi-arr-values arr #!key (indirect #t))
   (let loop ((i (- (ffi-arr-size arr) 1)) (lst '()))
     (if (< i 0) lst
-        (loop (+ i 1)
+        (loop (- i 1)
               (cons (if indirect
                         (ffi-arr-indirect arr i)
                         (ffi-arr-value arr i))
